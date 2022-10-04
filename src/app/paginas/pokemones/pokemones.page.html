@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pokemons</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="">
+  <form [formGroup]="formulario" novalidate>
+    <ion-searchbar placeholder="Nombre pokemon" formControlName="nombrePokemon"></ion-searchbar></form>
+    <ion-label *ngIf="!formulario.get('nombrePokemon').valid && formulario.get('nombrePokemon').errors.required" style="color: red;">Por favor, ingrese un nombre</ion-label>
+  <ng-template #cargando>
+    <ion-progress-bar type="indeterminate"></ion-progress-bar>
+  </ng-template>
+  <ng-template #datos>
+  <app-info-pokemon *ngFor="let url of obtenerPokemon.arrayInfo" [url]="url.url"></app-info-pokemon>
+  <ion-infinite-scroll (ionInfinite)="cargarMasPokemones($event)">
+    <ion-infinite-scroll-content [loadingSpinner]="'circular'" [loadingText]="'Pantalla de carga auspiciada por Vomistar'" ></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  </ng-template>
+  <p *ngIf="obtenerPokemon.resultado; then datos else cargando"></p>
+</ion-content>
