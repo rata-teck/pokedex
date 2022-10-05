@@ -13,6 +13,7 @@ import { Info } from 'src/app/modelo/peticion';
 export class PokemonesPage implements OnInit {
   @ViewChild(IonInfiniteScroll) public bosLaiyir:IonInfiniteScroll;
   public formulario: FormGroup;
+  public busqueda : Array<Info> = [];
   constructor(
     public obtenerPokemon: ObtenerPokemonService,
     public formBuilder: FormBuilder
