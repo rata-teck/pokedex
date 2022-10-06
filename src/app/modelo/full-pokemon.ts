@@ -66,6 +66,23 @@ type Sprites = {
   front_shiny : string,
   front_shiny_female : string
 }
+type Stat2 = {
+  name : string,
+  url : string
+}
+type Stat = {
+  base_stat : number,
+  effort : number,
+  stat : Stat2
+}
+ type Type2 = {
+  name : string,
+  url : string
+ }
+ type Type = {
+  slot : number,
+  type : Type2
+ }
 export interface FullPokemon {
   abilities: Array<Ability1>,
   base_experience: number,
@@ -81,64 +98,7 @@ export interface FullPokemon {
   order: number,
   species: Specie,
   sprites: Sprites,
-  "stats": [
-    {
-      "base_stat": 48,
-      "effort": 1,
-      "stat": {
-        "name": "hp",
-        "url": "https://pokeapi.co/api/v2/stat/1/"
-      }
-    },
-    {
-      "base_stat": 48,
-      "effort": 0,
-      "stat": {
-        "name": "attack",
-        "url": "https://pokeapi.co/api/v2/stat/2/"
-      }
-    },
-    {
-      "base_stat": 48,
-      "effort": 0,
-      "stat": {
-        "name": "defense",
-        "url": "https://pokeapi.co/api/v2/stat/3/"
-      }
-    },
-    {
-      "base_stat": 48,
-      "effort": 0,
-      "stat": {
-        "name": "special-attack",
-        "url": "https://pokeapi.co/api/v2/stat/4/"
-      }
-    },
-    {
-      "base_stat": 48,
-      "effort": 0,
-      "stat": {
-        "name": "special-defense",
-        "url": "https://pokeapi.co/api/v2/stat/5/"
-      }
-    },
-    {
-      "base_stat": 48,
-      "effort": 0,
-      "stat": {
-        "name": "speed",
-        "url": "https://pokeapi.co/api/v2/stat/6/"
-      }
-    }
-  ],
-  "types": [
-    {
-      "slot": 1,
-      "type": {
-        "name": "normal",
-        "url": "https://pokeapi.co/api/v2/type/1/"
-      }
-    }
-  ],
-  "weight": 40
+  stats : Array<Stat>,
+  types : Array<Type>
+  weight: number
 }

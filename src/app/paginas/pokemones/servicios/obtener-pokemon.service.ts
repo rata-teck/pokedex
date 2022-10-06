@@ -2,17 +2,20 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Peticion, Info} from './../../../modelo/peticion';
 import {Pokemon} from './../../../modelo/pokemon';
+import { FullPokemon } from 'src/app/modelo/full-pokemon';
 @Injectable()
 export class ObtenerPokemonService {
-  private url : string = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20';
+  private url1 : string = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20';
+  private url2 : string = 'https://pokeapi.co/api/v2/pokemon/';
   public resultado!: Peticion;
   public arrayInfo : Array<Info> = [];
+  public pokemon : Pokemon;
   constructor(
     private cliente: HttpClient
   ) { }
 
   public obtener20primeros(){
-    this.cliente.get<Peticion>(this.url).subscribe(peticion => {
+    this.cliente.get<Peticion>(this.url1).subscribe(peticion => {
       this.resultado = peticion;
       this.arrayInfo.push(...peticion.results);
     });
@@ -23,6 +26,12 @@ export class ObtenerPokemonService {
       //this.resultado.next = peticion.next;
       this.resultado = peticion;
       this.arrayInfo.push(...peticion.results);
+    });
+  }
+
+  public obtenerPokemon(nombrePokemon : string){
+    this.cliente.get<FullPokemon>(this.url2 || nombrePokemon).subscribe(data => {
+      this.pokemon = data;
     });
   }
 }
