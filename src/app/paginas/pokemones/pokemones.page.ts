@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {ObtenerPokemonService} from './servicios/obtener-pokemon.service';
+import {ObtenerPokemonService} from './../../servicios/obtener-pokemon.service';
 import { IonInfiniteScroll } from '@ionic/angular';
-import {FormBuilder, FormControl, FormGroup, Validator, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Info } from 'src/app/modelo/peticion';
 //import {Peticion, Info} from './../../modelo/peticion';
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Pokemon} from './../../../../modelo/pokemon';
 import {HttpClient} from '@angular/common/http';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-info-pokemon',

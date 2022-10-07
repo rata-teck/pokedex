@@ -8,13 +8,22 @@ import { PokemonPageRoutingModule } from './pokemon-routing.module';
 
 import { PokemonPage } from './pokemon.page';
 
+import {ObtenerPokemonService} from  './../../servicios/obtener-pokemon.service';
+import {RouterModule} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PokemonPageRoutingModule
+    PokemonPageRoutingModule,
+    RouterModule,
+    HttpClientModule
   ],
-  declarations: [PokemonPage]
+  declarations: [PokemonPage],
+  providers: [
+    ObtenerPokemonService
+  ]
 })
 export class PokemonPageModule {}

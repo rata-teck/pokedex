@@ -7,11 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { PokemonesPageRoutingModule } from './pokemones-routing.module';
 
 import { PokemonesPage } from './pokemones.page';
-import {RouterModule} from '@angular/router'; //rutas
+import {RouterModule, RouterLink} from '@angular/router'; //rutas
 import {HttpClientModule} from '@angular/common/http';
 
 import {InfoPokemonComponent} from './componentes/info-pokemon/info-pokemon.component';
-import {ObtenerPokemonService} from './servicios/obtener-pokemon.service';
+import {ObtenerPokemonService} from './../../servicios/obtener-pokemon.service';
 import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
@@ -22,7 +22,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     RouterModule,
     HttpClientModule,
     PokemonesPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   declarations: [PokemonesPage, InfoPokemonComponent],
   providers: [

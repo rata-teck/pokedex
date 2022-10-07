@@ -1,9 +1,48 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{pokebola.pokemon.name}}</ion-title>
+    <ion-title>{{pokebola.pokemon.name | uppercase}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content fullscreen=""><br>
+  <a href="/">
+    <h1><ion-icon name="caret-back-circle-outline"></ion-icon></h1>
+  </a>
+  <img [src]="pokebola.pokemon.sprites.front_default" width="100%">
+  <div align="center"><h1><h1>{{pokebola.pokemon.name | uppercase}}</h1></h1></div><br>
+  <div align="center"><ion-text>Habilidades</ion-text></div><br>
+  <ion-grid>
+  <ion-row>
+    <ion-col size="6" *ngFor="let a1 of pokebola.pokemon.abilities">- {{a1.ability.name}}.</ion-col>
+  </ion-row></ion-grid><br><br>
+  <div align="center"><ion-text>Estadísticas</ion-text></div><br>
+  <ion-grid>
+  <ion-row *ngFor="let a2 of pokebola.pokemon.stats">
+    <ion-col size="5">{{a2.stat.name}}</ion-col>
+    <ion-col size="4">------></ion-col>
+    <ion-col size="3">{{a2.base_stat}}</ion-col>
+  </ion-row></ion-grid><br>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="5">Experiencia Base</ion-col>
+      <ion-col size="4">------></ion-col>
+      <ion-col size="3">{{pokebola.pokemon.base_experience}}</ion-col>
+    </ion-row>
+  </ion-grid><br>
+  <div align="center">
+    <ion-text>Tipos</ion-text>
+  </div><br>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let a4 of pokebola.pokemon.types">- {{a4.type.name}}.</ion-col>
+    </ion-row>
+  </ion-grid><br>
+  <div align="center">
+    <ion-text>Movimientos</ion-text>
+  </div><br>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let a3 of pokebola.pokemon.moves">- {{a3.move.name}}.</ion-col>
+    </ion-row>
+  </ion-grid><br>
 </ion-content>

@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Peticion, Info} from './../../../modelo/peticion';
-import {Pokemon} from './../../../modelo/pokemon';
-import { FullPokemon } from 'src/app/modelo/full-pokemon';
+import {Peticion, Info} from './../modelo/peticion';
+//import {Pokemon} from './../modelo/pokemon';
+import { FullPokemon } from './../modelo/full-pokemon';
 @Injectable()
 export class ObtenerPokemonService {
   private url1 : string = 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20';
   private url2 : string = 'https://pokeapi.co/api/v2/pokemon/';
   public resultado!: Peticion;
   public arrayInfo : Array<Info> = [];
-  public pokemon : Pokemon;
+  public pokemon : FullPokemon;
   constructor(
     private cliente: HttpClient
   ) { }
@@ -30,7 +30,7 @@ export class ObtenerPokemonService {
   }
 
   public obtenerPokemon(nombrePokemon : string){
-    this.cliente.get<FullPokemon>(this.url2 || nombrePokemon).subscribe(data => {
+    this.cliente.get<FullPokemon>(this.url2 + nombrePokemon).subscribe(data => {
       this.pokemon = data;
     });
   }
